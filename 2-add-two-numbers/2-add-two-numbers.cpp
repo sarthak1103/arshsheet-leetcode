@@ -11,72 +11,31 @@
 class Solution {
 public:
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
-        ListNode* res= new ListNode();
-        ListNode* h=res;
-        int car=0;
-        while(l1 || l2){
-            if(l1 && l2){
-                ListNode* dummy= new ListNode();
-                int s=l1->val+l2->val+car;
-                if(s>9&&car==0){
-                    car+=1;
-                }
-                if(s<=9 && car!=0){
-                    car=0;
-                }
-                if(s>9)
-                    s=s%10;
-                dummy->val=s;
-                if(res)
-                    res->next=dummy;
-                else
-                    res->val=dummy->val;
-                l1=l1->next;
-                l2=l2->next;
-            }
-            else if(l1){
-                ListNode* dummy= new ListNode();
-                int s=l1->val+0+car;
-                if(s>9&&car==0){
-                    car+=1;
-                }
-                if(s<=9 && car!=0){
-                    car=0;
-                }
-                if(s>9)
-                    s=s%10;
-                dummy->val=s;
-                if(res)
-                    res->next=dummy;
-                else
-                    res->val=dummy->val;
-                l1=l1->next;
-            }
-            else{
-                ListNode* dummy= new ListNode();
-                int s=0+l2->val+car;
-                if(s>9&&car==0){
-                    car+=1;
-                }
-                if(s<=9 && car!=0){
-                    car=0;
-                }
-                if(s>9)
-                    s=s%10;
-                dummy->val=s;
-                if(res)
-                    res->next=dummy;
-                else
-                    res->val=dummy->val;
-                l2=l2->next;
-            }
-            res=res->next;
+           ListNode *dummy=new ListNode ();
+           ListNode *temp=dummy;
+        int carry=0;
+      while(l1!=NULL || l2!=NULL || carry)
+      {
+         int sum=0;
+        if(l1!=NULL)
+        {
+            sum+=l1->val;
+            l1=l1->next;
         }
-        if(car!=0){
-            ListNode* dummy= new ListNode();
-            dummy->val=car;
-            res->next=dummy;
+        if(l2!=NULL)
+        {
+            sum+=l2->val;
+            l2=l2->next;
         }
-        return h->next;
+        sum+=carry;
+        carry=sum/10;
+        ListNode *node=new ListNode(sum%10);
+        temp->next=node;
+        temp=temp->next;
+        
+      }
+        return dummy->next;
+        
+        
     }
 };
