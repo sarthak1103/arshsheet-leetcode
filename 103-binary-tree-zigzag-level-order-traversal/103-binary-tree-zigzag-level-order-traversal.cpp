@@ -32,7 +32,7 @@
                    if(top->right) q.push(top->right);
                    temp.push_back(top->val);
                }
-               if(rev==true)
+               if(rev)
                {
                    reverse(temp.begin(),temp.end());
                    rev=false;
