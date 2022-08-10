@@ -10,19 +10,19 @@
  * };
  */
 class Solution {
-    private:
-    int height(TreeNode *root)
-    {
-        //  base case
-        if(root==NULL)
-        {
-            return 0;
-        }
-        int left=height(root->left); // height of left subtree
-        int right=height(root->right); // height of right subtree
-        int ans=max(left,right)+1; // returning max of left and right
-        return ans;
-    }
+    // private:
+    // int height(TreeNode *root)
+    // {
+    //     //  base case
+    //     if(root==NULL)
+    //     {
+    //         return 0;
+    //     }
+    //     int left=height(root->left); // height of left subtree
+    //     int right=height(root->right); // height of right subtree
+    //     int ans=max(left,right)+1; // returning max of left and right
+    //     return ans;
+    // }
 public:
     
     pair<int,int> diameter(TreeNode* root)
