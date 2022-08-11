@@ -18,9 +18,11 @@ public:
             return true;
         if(root->val>min && root->val<max)
         {
-            bool left=isBst(root->left,min,root->val);
+            // here we will check the range for left node that it is in range of int min to root data 
+            bool left=isBst(root->left,min,root->val); 
+            // and here we check same for right node the range for this node will be root->data to the infinity 
             bool right=isBst(root->right,root->val,max);
-            return left && right;
+            return left && right;// we will return the bool value 
             
         }
         else{
