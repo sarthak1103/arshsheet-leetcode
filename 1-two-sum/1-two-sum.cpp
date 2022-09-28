@@ -1,20 +1,20 @@
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
-        vector<int> result;
-       unordered_map<int,int> m;
+        // brute force 
+        
+        vector<int> ans;
         for(int i=0;i<nums.size();i++)
         {
-            if(m.count(nums[i]))
+            for(int j=i+1;j<nums.size();j++)
             {
-                result.push_back(m[nums[i]]);
-                result.push_back(i);
-                break;
-            }
-            else{
-                m[target-nums[i]]=i;
+                if(nums[i]+nums[j]==target)
+                {
+                    ans.push_back(i);
+                    ans.push_back(j);
+                }
             }
         }
-        return result;
+        return ans;
     }
 };
