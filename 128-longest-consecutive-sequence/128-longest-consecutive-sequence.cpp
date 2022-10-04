@@ -1,7 +1,7 @@
 class Solution {
 public:
     int longestConsecutive(vector<int>& nums) {
-        map<long long int ,int> m;
+        map<int ,int> m;
         int count=1,ans=1;
         if(nums.size()==0)
             return 0;
